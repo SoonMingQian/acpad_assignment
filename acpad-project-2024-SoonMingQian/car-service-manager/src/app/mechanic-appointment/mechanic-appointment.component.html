@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Appointments</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" color="light">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Logout
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs (ionTabsDidChange)="segmentChanged($event)">
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="accepted">
+        <ion-icon name="construct-outline"></ion-icon>
+        <ion-label>Accepted</ion-label>
+        <ion-badge color="primary">{{ acceptedCount$ | async }}</ion-badge>
+      </ion-tab-button>
+      <ion-tab-button tab="completed">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <ion-label>Completed</ion-label>
+        <ion-badge color="success">{{ completedCount$ | async }}</ion-badge>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+    <ion-tab tab="accepted">
+      <ion-content>
+        @if (acceptedAppointments$ | async; as appointments) {
+          @for (appointment of appointments; track appointment.id) {
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  {{ appointment.title }}
+                </ion-card-title>
+                <ion-card-subtitle>
+                  {{ appointment.date | date: 'medium' }}
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p> {{ appointment.description }}</p>
+                <p> Status: {{ appointment.status }}</p>
+                <ion-button expand="block" color="primary" (click)="completeAppointment(appointment)" class="complete-button">
+                  Mark as Completed
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          }
+        }
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab tab="completed">
+      <ion-content>
+        @if (completedAppointments$ | async; as appointments) {
+          @for (appointment of appointments; track appointment.id) {
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  {{ appointment.title }}
+                </ion-card-title>
+                <ion-card-subtitle>
+                  {{ appointment.date | date: 'medium' }}
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ appointment.description }}</p>
+                <p>Status: {{ appointment.status }}</p>
+              </ion-card-content>
+            </ion-card>
+          }
+        }
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
+</ion-content>

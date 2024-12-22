@@ -1,0 +1,20 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="cars">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Cars</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="appointments">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Appointments</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="questions">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>Questions</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

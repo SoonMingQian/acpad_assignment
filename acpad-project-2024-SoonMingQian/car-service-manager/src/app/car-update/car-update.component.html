@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/cars"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Car</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (newCar) {
+    <form>
+      <ion-item>
+        <ion-label position="stacked">Model</ion-label>
+        <ion-input [(ngModel)]="newCar.model" name="model"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Registration</ion-label>
+        <ion-input [(ngModel)]="newCar.carReg" name="carReg"></ion-input>
+      </ion-item>
+
+      @if (newCar.photo) {
+        <ion-item>
+          <ion-img [src]="newCar.photo"></ion-img>
+        </ion-item>
+      }
+
+      <ion-item>
+        <ion-button (click)="takePicture()">Take Picture</ion-button>
+      </ion-item>
+
+      <div class="ion-padding">
+        <ion-button expand="block" (click)="updateCar()">Update Car</ion-button>
+        <ion-button expand="block" color="danger" (click)="deleteCar(newCar)">Delete Car</ion-button>
+      </div>
+    </form>
+  }
+</ion-content>

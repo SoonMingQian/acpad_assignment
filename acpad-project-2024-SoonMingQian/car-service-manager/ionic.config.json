@@ -1,0 +1,7 @@
+{
+  "name": "car-service-manager",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

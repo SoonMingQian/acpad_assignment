@@ -1,0 +1,81 @@
+// question.component.scss
+
+ion-toolbar {
+    --background: linear-gradient(120deg, #2b3a67 0%, #1d2951 100%);
+    --color: #ffffff;
+    --border-style: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
+    ion-title {
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+  }
+  
+  ion-content {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+  }
+  
+  ion-item {
+    margin-bottom: 20px;
+    --border-radius: 8px;
+    --background: #ffffff;
+    border-left: 4px solid #ff4081;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      --background: #f8f9fa;
+      transform: translateX(5px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 4px solid #536DFE;
+    }
+  }
+  
+  ion-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  ion-input {
+    --padding-start: 16px;
+    font-weight: 500;
+    --background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 10px; // Add margin to avoid blocking the title
+    
+    &:hover {
+      --background: #f8f9fa;
+      transform: translateX(5px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  
+  ion-img {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  ion-button {
+    --background: #ff4081;
+    --background-hover: #e91e63;
+    --border-radius: 25px;
+    --box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 48px;
+    margin-top: 20px;
+    
+    &:hover {
+      transform: translateY(-2px);
+      --box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+      transition: all 0.3s ease;
+    }
+  }

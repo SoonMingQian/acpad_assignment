@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Assign Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="assignMechanic()">
+    <ion-item>
+      <ion-label position="stacked">Select Appointment</ion-label>
+      <ion-select [(ngModel)]="selectedAppointmentId" name="appointment" required>
+        @if (appointments$ | async; as appointments) {
+          @for (appointment of appointments; track appointment.id) {
+            <ion-select-option [value]="appointment.id">
+              {{ appointment.title }} - {{ appointment.date | date: 'medium' }}
+            </ion-select-option>
+          }
+        }
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Select Mechanic</ion-label>
+      <ion-select [(ngModel)]="selectedMechanicId" name="mechanic" required>
+        @for (mechanic of mechanics; track mechanic.id) {
+          <ion-select-option [value]="mechanic.id">
+            {{ mechanic.firstName }} {{ mechanic.lastName }} - {{ mechanic.role }}
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Assign Mechanic</ion-button>
+  </form>
+</ion-content>

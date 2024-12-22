@@ -1,0 +1,67 @@
+// assign-task.component.scss
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Dynamic item styling
+  ion-item {
+    margin-bottom: 20px;
+    --border-radius: 8px;
+    --background: #ffffff;
+    border-left: 4px solid #ff4081;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      --background: #f8f9fa;
+      transform: translateX(5px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 4px solid #536DFE;
+    }
+  }
+  
+  // Bold, sporty labels
+  ion-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  // Modern select styling
+  ion-select {
+    --padding-start: 16px;
+    font-weight: 500;
+    
+    &::part(icon) {
+      color: #536DFE;
+    }
+  }
+  
+  .ion-padding {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+  
+    ion-button {
+      --background: #ff4081;
+      --background-hover: #e91e63;
+      --border-radius: 25px;
+      --box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      height: 48px;
+      
+      &:hover {
+        transform: translateY(-2px);
+        --box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+        transition: all 0.3s ease;
+      }
+    }
+  }

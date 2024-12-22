@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Appointments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="navigateToAddAppointment()">Add Appointment</ion-button>
+  </div>
+  <ion-list>
+    @if (appointments$ | async; as appointments) {
+      @for (appointment of appointments; track appointment.id) {
+        <ion-card (click)="viewAppointment(appointment)">
+          <ion-card-header>
+            <ion-card-title>{{ appointment.title }}</ion-card-title>
+            <ion-card-subtitle>{{ appointment.date | date: 'medium' }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ appointment.description }}</p>
+            <p>Status: {{ appointment.status }}</p>
+          </ion-card-content>
+        </ion-card>
+      }
+    }
+  </ion-list>
+</ion-content>

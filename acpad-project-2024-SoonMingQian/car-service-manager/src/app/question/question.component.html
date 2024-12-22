@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Enquiry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @for (chat of conversation; track $index) {
+    <ion-item>
+      <ion-label>
+        <strong>User:</strong> {{ chat.question }}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <strong>Answer:</strong> {{ chat.answer }}
+      </ion-label>
+    </ion-item>
+  }
+  <form (submit)="onSubmit($event)">
+    <ion-item>
+      <ion-label position="stacked">Ask a question</ion-label>
+      <ion-input [(ngModel)]="question" name="question" required></ion-input>
+    </ion-item>
+    @if (photo) {
+      <ion-item>
+        <ion-img [src]="photo"></ion-img>
+      </ion-item>
+    }
+    <ion-item>
+      <ion-button expand="block" (click)="takePhoto()">Take Photo</ion-button>
+    </ion-item>
+    <ion-button expand="block" type="submit">Ask</ion-button>
+  </form>
+  
+
+  
+
+  
+</ion-content>

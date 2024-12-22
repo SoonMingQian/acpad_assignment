@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Car List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="navigateToAddCar()">Add Car</ion-button>
+  </div>
+  <ion-list>
+    @if (cars$ | async; as cars) {
+      @for (car of cars; track car.id) {
+        <ion-card (click)="viewCar(car)">
+          @if (car.photo) {
+            <img [src]="car.photo" alt="Car photo" class="car-image"/>
+          }
+          <ion-card-header>
+            <ion-card-title>{{ car.model }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Registration: {{ car.carReg }}</p>
+          </ion-card-content>
+        </ion-card>
+      }
+    }
+  </ion-list>
+</ion-content>

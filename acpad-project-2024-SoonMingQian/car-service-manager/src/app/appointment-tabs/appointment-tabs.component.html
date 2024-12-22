@@ -1,0 +1,23 @@
+<ion-tabs>
+  <ion-tab-bar slot="top">
+    <ion-tab-button tab="pending" routerLink="pending" routerDirection="root">
+      <ion-icon name="hourglass-outline"></ion-icon>
+      <ion-label>Pending</ion-label>
+      <ion-badge>{{ pendingCount }}</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="accepted" routerLink="accepted" routerDirection="root">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-label>Accepted</ion-label>
+      <ion-badge>{{ acceptedCount }}</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="completed" routerLink="completed" routerDirection="root">
+      <ion-icon name="flag-outline"></ion-icon>
+      <ion-label>Completed</ion-label>
+      <ion-badge>{{ completedCount }}</ion-badge>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <ion-router-outlet></ion-router-outlet>
+</ion-tabs>

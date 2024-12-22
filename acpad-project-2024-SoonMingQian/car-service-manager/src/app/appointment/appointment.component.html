@@ -1,0 +1,13 @@
+<ion-list>
+  @for (appointment of appointments$ | async; track appointment.id) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ appointment.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ appointment.description }}</p>
+        <p>{{ appointment.date | date: 'short' }}</p>
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-list>

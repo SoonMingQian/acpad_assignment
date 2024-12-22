@@ -1,0 +1,23 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="mechanic-register" routerLink="mechanic-register" routerDirection="root">
+      <ion-icon name="person-add"></ion-icon>
+      <ion-label>Add Mechanic</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="appointments-tabs" routerLink="appointments-tabs" routerDirection="root">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Appointments</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="assign-task" routerLink="assign-task" routerDirection="root">
+      <ion-icon name="clipboard"></ion-icon>
+      <ion-label>Assign Task</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

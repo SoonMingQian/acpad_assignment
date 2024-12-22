@@ -1,0 +1,152 @@
+// mechanic-register.component.scss
+
+:host {
+  // Default theme
+  --primary-color: #536DFE;
+  --secondary-color: #ff4081;
+  --background-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --form-background: #ffffff;
+  --input-border: #ddd;
+  --label-color: #2c3e50;
+  --button-gradient: linear-gradient(45deg, #536DFE, #6a82fe);
+
+  display: block;
+  min-height: 100vh;
+  background: var(--background-gradient);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  background: var(--form-background);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  ion-item {
+    --background: transparent;
+    --border-color: var(--input-border);
+    --border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --padding-top: 15px;
+
+    &:hover {
+      --background: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    ion-label {
+      z-index: 2;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    ion-input {
+      --padding-start: 12px;
+      --padding-end: 12px;
+      --padding-top: 12px;
+      --padding-bottom: 12px;
+      --background: rgba(255, 255, 255, 0.1);
+      --border-radius: 8px;
+      margin-top: 10px; // Add margin to avoid blocking the title
+
+      &:focus {
+        --background: rgba(255, 255, 255, 0.2);
+      }
+
+      &:hover {
+        --background: #f8f9fa;
+        transform: translateX(5px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+}
+
+// Bold, sporty labels
+ion-label {
+  color: var(--label-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+// Modern input styling
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --background: rgba(255, 255, 255, 0.1);
+  --border-radius: 8px;
+  margin-top: 10px; // Add margin to avoid blocking the title
+
+  &:focus {
+    --background: rgba(255, 255, 255, 0.2);
+  }
+
+  &:hover {
+    --background: #f8f9fa;
+    transform: translateX(5px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// Button styling
+ion-button {
+  margin-top: 24px;
+  --background: var(--button-gradient);
+  height: 48px;
+  font-weight: 600;
+  font-size: 1.1em;
+  --border-radius: 24px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    --box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+    transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  ion-button {
+    height: 44px;
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/appointments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (newAppointment) {
+    <form>
+      <ion-item>
+        <ion-label position="stacked">Title</ion-label>
+        <ion-select [(ngModel)]="newAppointment.title" name="title">
+          <ion-select-option value="repair">Repair</ion-select-option>
+          <ion-select-option value="service">Service</ion-select-option>
+          <ion-select-option value="inspection">Inspection</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea [(ngModel)]="newAppointment.description" name="description"></ion-textarea>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Date</ion-label>
+      <ion-datetime
+        [(ngModel)]="newAppointment.date"
+        name="date"
+        [min]="currentDate"
+        [max]="maxDate">
+      </ion-datetime>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Car</ion-label>
+        <ion-select [(ngModel)]="newAppointment.carId">
+          @for (car of cars$ | async; track car.id) {
+            <ion-select-option [value]="car.id">{{ car.model }} - {{ car.carReg }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Status</ion-label>
+        <ion-input [value]="newAppointment.status" readonly></ion-input>
+      </ion-item>
+  
+      <div class="ion-padding">
+        <ion-button 
+          expand="block" 
+          (click)="updateAppointment()" 
+          [disabled]="newAppointment.status === 'completed'">
+          Update Appointment
+        </ion-button>
+        <ion-button 
+          expand="block" 
+          color="danger" 
+          (click)="deleteAppointment(newAppointment)">
+          Delete Appointment
+        </ion-button>
+      </div>
+    </form>
+  }
+  
+</ion-content>

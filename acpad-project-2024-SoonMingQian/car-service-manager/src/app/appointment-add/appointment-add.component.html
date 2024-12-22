@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/appointments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-select [(ngModel)]="newAppointment.title" name="title">
+        <ion-select-option value="repair">Repair</ion-select-option>
+        <ion-select-option value="service">Service</ion-select-option>
+        <ion-select-option value="inspection">Inspection</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea [(ngModel)]="newAppointment.description" name="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Date</ion-label>
+      <ion-datetime
+        [(ngModel)]="newAppointment.date"
+        name="date"
+        [min]="currentDate"
+        [max]="maxDate">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Car</ion-label>
+      <ion-select [(ngModel)]="newAppointment.carId" name="carId">
+        <ion-select-option *ngFor="let car of cars$ | async" [value]="car.id">{{ car.model }} - {{ car.carReg }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" (click)="createAppointment()">Create Appointment</ion-button>
+    </div>
+  </form>
+</ion-content>
